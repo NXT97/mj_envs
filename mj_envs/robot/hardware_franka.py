@@ -14,7 +14,7 @@ import torch
 
 from polymetis import RobotInterface
 import torchcontrol as toco
-from .hardware_base import hardwareBase
+from hardware_base import hardwareBase
 import argparse
 
 class JointPDPolicy(toco.PolicyModule):
@@ -57,7 +57,7 @@ class FrankaArm(hardwareBase):
 
         # Initialize self.robot interface
         self.robot = RobotInterface(
-            ip_address=ip_address,
+            ip_address=ip_address, enforce_version=False
         )
         # self.reset()
 
@@ -101,13 +101,15 @@ class FrankaArm(hardwareBase):
 
     def get_sensors(self):
         """Get hardware sensors"""
-        joint_angel = self.robot.get_joint_angles()
+        # joint_angel = self.robot.get_joint_angles()
+        joint_angel = self.robot.get_joint_positions()
         return joint_angel
 
     def apply_commands(self, q_desired):
         """Apply hardware commands"""
         q_initial = self.get_sensors()
-        q_des_tensor = torch.tensor(q_desired)
+        # q_des_tensor = torch.tensor(q_desired)
+        q_des_tensor = q_desired.detach().clone()
         # print(q_initial, q_des_tensor)
         self.robot.update_current_policy({"q_desired": q_des_tensor})
 
@@ -123,7 +125,8 @@ def get_args():
     parser.add_argument("-i", "--server_ip",
                         type=str,
                         help="IP address or hostname of the franka server",
-                        default="localhost") # 10.0.0.123 # "169.254.163.91",
+                        # default="localhost") # 10.0.0.123 # "169.254.163.91",
+                        default="172.16.0.1") # 10.0.0.123 # "169.254.163.91",
     return parser.parse_args()
 
 
