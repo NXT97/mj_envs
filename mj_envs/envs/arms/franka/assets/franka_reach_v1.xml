@@ -37,13 +37,13 @@
             <include file="../../../../sims/furniture_sim/simpleTable/simpleWoodTable_body.xml"/>
         </body> -->
         
-        <body pos='0.6 0.2 0.18' euler='0 0 0.0 ' name='cube1'>
+        <!-- <body pos='0.6 0.2 0.18' euler='0 0 0.0 ' name='cube1'>
             <geom type='box' size='0.185 0.085 0.235' pos='0.0 0.0 0.0'/>
         </body>
 
         <body pos='0.5 -0.55 0.115' euler='0 0 0.0 ' name='cube2'>
             <geom type='box' size='0.31 0.21 0.165' pos='0.0 0.0 0.0'/>
-        </body>
+        </body> -->
 
         <!-- <body pos='0.0 0.0 -0.2' euler='0 0 0.0 ' name='cube3'>
             <geom type='box' size='1.0 1.0 0.1' pos='0.0 0.0 0.0'/>
@@ -75,19 +75,26 @@
         <!-- tasks details added here via include-->
         <!-- <site name='target' type='sphere' size='.1' pos='0 0.475 0.225' group='1' rgba='.1 .8 .2 .4'/> -->
         <!-- <site name='target' type='box' size='.01 0.01 0.05' pos='0 0.475 0.225' group='1' rgba='.1 .8 .2 .4'/> -->
-        <!-- <body name='target' pos='0 0.475 0.225'>
-            <geom name='target' type='box' size='.01 0.01 0.05' group='1' rgba='.1 .8 .2 .4'/>
-        </body> -->
-        <body name='target' pos='0.304 0.209 0.346' euler='0 0 0'>
+        
+        <body name='target1' pos='0.3956012925505638 -0.019312404990196208 0.06576762363314628' quat=' 0.05 -0.04 -0.34  2.88'>
             <body name='target1sub' pos='0 0 0' euler='0 0 0'>
-                <include file="../../../../sims/franka_sim/assets/gripper_vis.xml"/>
+                <include file="../../../../sims/franka_sim/assets/gripper_vis1.xml"/>
             </body>
         </body>
-        <!-- <body name='target' pos='0.304 0.209 0.346'>
-                <include file="../../../../sims/franka_sim/assets/gripper_vis.xml"/>
-        </body> -->
 
-        <site name='end_effector1' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
+        <body name='target2' pos='0.42080165341496467 0.08230028867721559 0.05771762348711491' quat=' 0.05 -0.04 -0.34  2.88'>
+            <body name='target2sub' pos='0 0 0' euler='0 0 0'>
+                <include file="../../../../sims/franka_sim/assets/gripper_vis2.xml"/>
+            </body>
+        </body>
+
+        <body name='target3' pos='0.4604022204875946 0.24197737872600555 0.045067623257637024' quat=' 0.05 -0.04 -0.34  2.88'>
+            <body name='target3sub' pos='0 0 0' euler='0 0 0'>
+                <include file="../../../../sims/franka_sim/assets/gripper_vis3.xml"/>
+            </body>
+        </body>
+
+        <!-- <site name='end_effector1' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
         <site name='end_effector2' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
         <site name='end_effector3' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
         <site name='end_effector4' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
@@ -116,7 +123,7 @@
         <site name='end_effector27' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
         <site name='end_effector28' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
         <site name='end_effector29' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
-        <site name='end_effector30' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/> 
+        <site name='end_effector30' pos='0 0 .10' size='0.01' euler='0 0 0' rgba='.8 .1 .2 .4'/>  -->
     </worldbody>
 
 </mujoco>
